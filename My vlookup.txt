@@ -1,0 +1,19 @@
+=myvlookup(E6,$A$2:$C$15,2) 
+
+Function MYVLOOKUP(pValue As String, pWorkRng As Range, pIndex As Long)
+Dim rng As Range
+Dim xResult As String
+xResult = ""
+For Each rng In pWorkRng
+    If rng = pValue Then
+        xResult = xResult & " " & rng.Offset(0, pIndex - 1)
+    End If
+Next
+MYVLOOKUP = xResult
+End Function
+
+
+IF(ISERROR(INDEX($A$1:$B$6,SMALL(IF($A$1:$A$6=$E$1,ROW($A$1:$A$6)),ROW(1:1)),2)),"",INDEX($A$1:$B$6,SMALL(IF($A$1:$A$6=$E$1,ROW($A$1:$A$6)),ROW(1:1)),2))
+control +shift+enter
+
+INDEX($A$1:$B$6,SMALL(IF($A$1:$A$6=$E$1,ROW($A$1:$A$6)),ROW(1:1)),2)
